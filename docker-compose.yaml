@@ -1,0 +1,37 @@
+services:
+  app:
+      build:
+        context: .
+      container_name: trainApp
+      links:
+        - postgres
+      environment:
+        - POSTGRES_USER=bhaskarpathak
+        - POSTGRES_PASSWORD=password
+        - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres?sslmode=disable
+        - SPRING_DATASOURCE_USERNAME=bhaskarpathak
+        - SPRING_DATASOURCE_PASSWORD=password
+        - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      ports:
+        - 8080:8080
+      depends_on:
+        - postgres
+
+  flyway:
+    image: flyway/flyway
+    command: -url=jdbc:postgresql://postgres:5432/postgres?sslmode=disable -locations=filesystem:/flyway/sql  -schemas=public -user=bhaskarpathak -password=password -baselineOnMigrate=true migrate
+    volumes:
+      - ./flyway:/flyway/sql
+      - /src/main/java/resources/db/migration
+    depends_on:
+      - app
+      - postgres
+
+  postgres:
+    image: 'postgres:10-alpine'
+    environment:
+      - 'POSTGRES_DB=postgres'
+      - 'POSTGRES_PASSWORD=password'
+      - 'POSTGRES_USER=bhaskarpathak'
+    ports:
+      - 5432
