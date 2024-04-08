@@ -18,10 +18,10 @@ public class SearchTrainService {
     @Autowired
     private LocationRepository locationRepository;
 
-    public List<Train> searchTrainByToANdFrom(String from, String to){
-        long start= locationRepository.findByCity(from).getId();
-        long end= locationRepository.findByCity(to).getId();
+    public List<Train> searchTrainByToAndFrom(String from, String to) {
+        long start = locationRepository.findByCity(from).getId();
+        long end = locationRepository.findByCity(to).getId();
 
-        return trainRepo.findByStartlocationAndEndlocation(start,end);
+        return trainRepo.findByStartlocationAndEndlocation(start, end);
     }
 }

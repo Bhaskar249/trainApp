@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-@ComponentScan(basePackages={"com.cloudbees.repository"})
+@ComponentScan(basePackages = {"com.cloudbees.repository"})
 public class SeatReservationService {
 
     @Autowired
@@ -57,8 +57,8 @@ public class SeatReservationService {
 
             }
 
-            System.out.println(res.getStartlocaition()+"******");
-            res=   reservationRepository.save(res);
+            System.out.println(res.getStartlocaition() + "******");
+            res = reservationRepository.save(res);
             return res;
         } catch (Exception e) {
             throw new PersistenceLayerException(e.getMessage());
