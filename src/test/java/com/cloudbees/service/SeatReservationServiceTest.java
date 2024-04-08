@@ -12,7 +12,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
@@ -23,7 +22,7 @@ class SeatReservationServiceTest {
     private ReservationRepository reservationRepository;
 
     @InjectMocks
-    private SeatReservationService sts;
+    private SeatReservationServiceImpl sts;
 
     @Test
     void viewReservedSeat() {

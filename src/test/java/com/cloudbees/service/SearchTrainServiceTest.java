@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.context.annotation.ComponentScan;
@@ -19,8 +18,6 @@ import java.util.List;
 
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
-
-import org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 @ComponentScan(basePackages = {"com.cloudbees.repository", "com.cloudbees.service", "com.cloudbees.models"})
@@ -33,7 +30,7 @@ class SearchTrainServiceTest {
 
     @InjectMocks
     @Spy
-    private com.cloudbees.service.SearchTrainService sts;
+    private SearchTrainServiceImpl sts;
 
 
     @Test

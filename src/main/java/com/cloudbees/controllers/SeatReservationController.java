@@ -4,7 +4,7 @@ import com.cloudbees.exceptions.PersistenceLayerException;
 import com.cloudbees.models.Reservation;
 import com.cloudbees.models.ReservationRequest;
 import com.cloudbees.models.ReservationUpdateRequest;
-import com.cloudbees.service.SeatReservationService;
+import com.cloudbees.service.SeatReservationServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +19,7 @@ import java.util.Optional;
 public class SeatReservationController {
 
     @Autowired
-    private SeatReservationService seatReservationService;
+    private SeatReservationServiceImpl seatReservationService;
 
     @PostMapping("/reservation/add")
     public ResponseEntity<Reservation> reserveSeat(@RequestBody ReservationRequest req) throws PersistenceLayerException {

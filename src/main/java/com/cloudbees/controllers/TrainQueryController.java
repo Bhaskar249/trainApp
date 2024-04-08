@@ -1,7 +1,7 @@
 package com.cloudbees.controllers;
 
 import com.cloudbees.models.Train;
-import com.cloudbees.service.SearchTrainService;
+import com.cloudbees.service.SearchTrainServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +17,7 @@ import java.util.List;
 public class TrainQueryController {
 
     @Autowired
-    private SearchTrainService trainService;
+    private SearchTrainServiceImpl trainService;
     @GetMapping("/welcome")
     public String hello(){
         return "Hello world";
