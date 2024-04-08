@@ -1,0 +1,36 @@
+to run the application-
+step1 : docker compose build
+step2: docker compose up
+step3: run the flyway container again to create sample data in the db tables
+step4: curl --location 'http://localhost:8080/api/v1/search/London/France'
+step5: API for creating booking
+
+curl --location 'http://localhost:8080/api/v1/reservation/add' \
+       --header 'Content-Type: application/json' \
+       --data '{
+           "from": 1712526061,
+           "to": 1712526062,
+           "user": 1712521000,
+           "price": 20,
+           "section": 0,
+           "pnr": 1712526023,
+           "seat_no": 232323
+       }'
+
+step6: API for update booking
+
+ curl --location --request PUT 'http://localhost:8080/api/v1/reservation/update' \
+       --header 'Content-Type: application/json' \
+       --data '{
+           "from": 1712526061,
+           "to": 1712526062,
+           "user": 1712521000,
+           "old_price": 20,
+           "new_price":18,
+           "old_section": 0,
+           "new_section":1,
+           "old_pnr": 1712526023,
+            "new_pnr": 1712526023,
+           "old_seat_no": 232323,
+           "new_seat_no": 232343
+       }'
